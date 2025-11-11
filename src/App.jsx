@@ -23,14 +23,14 @@ function App() {
     );
   };
 
-  const total = cartItems.reduce((acc, pizza) => acc + pizza.price * pizza.count,0);
+  const total = cartItems.reduce((acc, pizza) => acc + pizza.price * pizza.count, 0);
 
   return (
     <>
       <Navbar />
-      
-      {/* <Home /> */}
-      
+
+      <Home />
+
       <div>
         {cartItems.map((pizza) => (
           <Cart
