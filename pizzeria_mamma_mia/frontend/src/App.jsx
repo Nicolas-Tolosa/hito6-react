@@ -2,11 +2,14 @@ import './App.css'
 import { useState } from 'react'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
-import Cart from './pages/components/Cart'
+import Cart from './pages/Cart.jsx'
 
 import { formatCurrency } from './utils/formatCurrency'
 import { pizzaCart } from './data/pizzas.js'
 import Home from './pages/Home.jsx'
+
+import AppRoutes from './routes/AppRoutes.jsx'
+
 
 function App() {
 
@@ -27,6 +30,7 @@ function App() {
 
   return (
     <>
+
       <Navbar />
 
       <Home />
