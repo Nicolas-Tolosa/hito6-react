@@ -5,10 +5,9 @@ import { CiPizza } from "react-icons/ci";
 import { FaUser } from "react-icons/fa";
 import { BiSolidLogIn } from "react-icons/bi";
 import { BiSolidLogOut } from "react-icons/bi";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-    const navigate = useNavigate();
     const total = 25000;
     const token = false;
 
