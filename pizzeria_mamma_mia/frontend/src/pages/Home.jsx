@@ -1,19 +1,20 @@
+// src/pages/Home.jsx (Refactorizado)
+
 import Header from '../pages/components/Header'
 import CardPizza from '../components/CardPizza'
-import { useEffect, useState } from 'react'
-import Pizza from './Pizza'
+// import { useEffect, useState } from 'react' // ELIMINADO
+// import Pizza from './Pizza' // ELIMINADO
+import { usePizzas } from '../context/PizzaContext' // <-- NUEVA IMPORTACIÓN
 
 const Home = () => {
 
-  const [ pizzas, setPizzas ] = useState([])
+  // ELIMINADA toda la lógica de fetch y useState
+  const { pizzas, loading, error } = usePizzas(); // <-- CONSUMIMOS EL CONTEXT
 
-  useEffect(() => {
-    fetch("http://localhost:5000/api/pizzas")
-    .then((res) => res.json())
-    .then((data) => {
-      setPizzas(data)
-    })
-  }, [])
+  // Manejo de estados de carga y error
+  if (loading) return <p className="text-center mt-10 text-xl">Cargando nuestras deliciosas pizzas...</p>;
+  if (error) return <p className="text-center mt-10 text-xl text-red-600">Error al cargar las pizzas: {error}</p>;
+
   return (
     <div>
       <Header></Header>

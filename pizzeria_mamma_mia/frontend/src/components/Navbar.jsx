@@ -7,8 +7,14 @@ import { BiSolidLogIn } from "react-icons/bi";
 import { BiSolidLogOut } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
+// 1. IMPORTAR EL CONTEXT
+import { useCart } from '../context/CartContext';
+
 const Navbar = () => {
-    const total = 25000;
+    // 2. REEMPLAZAR EL VALOR ESTATICO (25000) POR EL CONTEXT
+    const { calculateTotal } = useCart();
+    const total = calculateTotal(); // El total se calcula dinámicamente
+
     const token = false;
 
     return (
@@ -53,7 +59,7 @@ const Navbar = () => {
                     <FaCartShopping className="text-xs md:text-lg lg:text-lg xl:text-lg 2xl:text-lg text-white" />
                     <p className="text-xs md:text-lg lg:text-lg xl:text-lg 2xl:text-lg text-white">Total:</p>
                     <span className="text-xs md:text-lg lg:text-lg xl:text-lg 2xl:text-lg text-white">
-                        ${formatCurrency(total)}
+                        ${formatCurrency(total)} {/* <--- AHORA USA EL TOTAL DINÁMICO */}
                     </span>
                 </Link>
             </div>
